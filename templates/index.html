@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <main class="page">
+    <section class="intro">
+      <p class="eyebrow">A fresh start</p>
+      <h1>Welcome to my website</h1>
+      <p>Simple, secure, and ready when you are.</p>
+      <div class="status">
+        <span>{{ day_of_week }}</span>
+        <span>{{ current_time }}</span>
+      </div>
+    </section>
+
+    <section class="card">
+      {% if error %}
+        <p class="error" role="alert">{{ error }}</p>
+      {% endif %}
+      <form action="{{ url_for('create_account') }}" method="post" class="form">
+        <label for="name">
+          Name
+          <input type="text" id="name" name="name" placeholder="Your name" value="{{ form_data.get('name', '') }}" />
+        </label>
+        <label for="email">
+          Email
+          <input type="email" id="email" name="email" placeholder="you@example.com" value="{{ form_data.get('email', '') }}" />
+        </label>
+        <label for="password">
+          Password
+          <input type="password" id="password" name="password" placeholder="Create a password" />
+        </label>
+        <label for="confirm-password">
+          Confirm password
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Repeat your password" />
+        </label>
+        <input type="submit" value="Create account" />
+      </form>
+      <p><a href="{{ url_for('api') }}">View the JSON API</a></p>
+    </section>
+  </main>
+</body>
+</html>

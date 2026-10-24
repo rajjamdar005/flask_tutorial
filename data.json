@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome",
+    "message": "This data is served by the Flask JSON API."
+  },
+  {
+    "id": 2,
+    "title": "MongoDB Atlas",
+    "message": "The frontend form stores submitted data in MongoDB Atlas."
+  }
+]
